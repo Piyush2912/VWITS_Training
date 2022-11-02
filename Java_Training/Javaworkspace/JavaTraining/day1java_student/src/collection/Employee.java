@@ -121,7 +121,18 @@ public class Employee {
     @Override
     public boolean equals(Object obj)  //obj = e2
     {
-        return this.empid == ((Employee)obj).empid;
+    	System.out.println("emp's equal method:comparing empid="+this.empid+" and empid="+((Employee)obj).empid);
+    	if(obj instanceof Employee) {
+    		return this.empid == ((Employee)obj).empid;
+    	}else {
+    		return false;
+    	}
+    }
+    
+    @Override
+    public int hashCode() {
+    	System.out.println("hashCode of this employee with empid:" + this.empid + " is " + this.deptno);
+    	return this.deptno;
     }
     
 
