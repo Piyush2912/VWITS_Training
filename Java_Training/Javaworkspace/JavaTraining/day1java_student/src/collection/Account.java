@@ -50,7 +50,11 @@ public class Account {
 	@Override
     public boolean equals(Object obj)  //obj = a2
     {
-        return this.account_no == ((Account)obj).account_no;
+		if(obj instanceof Account) {
+			return this.account_no == ((Account)obj).account_no;
+		}else {
+			return false;
+		}
     }
     
 	
