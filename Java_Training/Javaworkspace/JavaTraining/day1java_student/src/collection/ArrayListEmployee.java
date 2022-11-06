@@ -35,7 +35,7 @@ public class ArrayListEmployee {
 
         lst.add(e);
 
-        lst.add(new Employee(3,"Sangeeta Shah",35000,10));
+        lst.add(new Employee(3,"Sangeeta Shah",35000,20));
         lst.add(new Employee(2,"Raj Malhotra",25000,10));
 
 
@@ -54,8 +54,41 @@ public class ArrayListEmployee {
          * if you dont override equals in Employee then Object class equal will be called
          * and it checks if two objects are memory-wise equal - so u wont get the expected result.
          */
-          boolean isPresent = lst.contains(new Employee(3,"Sangeeta Shah",35000,10));
+        System.out.println("calling contains method on ArrayList to search an Employee:");  
+        boolean isPresent = lst.contains(new Employee(3,"Sangeeta Shah",35000,10));
           System.out.println("Employee with empid 3 and name Sangeeta Shah is Present or not? = "+isPresent);
+
+          System.out.println("Iterate through list of employees");
+
+          Iterator<Employee> itr = lst.iterator();
+
+          while(itr.hasNext())
+          {
+              Employee ex = itr.next();
+              System.out.println(ex.calcAnnSal());
+              System.out.println(ex);
+          }
+
+
+
+          System.out.println("Printing Employees of ArrayList using forEach method added in java 8");
+          lst.forEach(ex-> 
+                {
+                   System.out.println(ex);
+                    double sal  = ex.calcAnnSal();     
+                    System.out.println(sal);
+
+
+                }
+
+            );
+
+
+          lst.forEach(ex-> System.out.println(ex));
+
+          System.out.println("isempty:"+lst.isEmpty());
+          lst.clear();
+          System.out.println("isempty:"+lst.isEmpty());
 
 
     }

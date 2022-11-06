@@ -1,5 +1,4 @@
-package collection;
-
+package collections1;
 
 public class Employee implements Comparable<Employee> {
 
@@ -7,8 +6,6 @@ public class Employee implements Comparable<Employee> {
     private String empname;
     private double salary;
     private int deptno;
-
-
 
 
     public Employee() {
@@ -36,7 +33,7 @@ public class Employee implements Comparable<Employee> {
 
     public Employee(int empid, String empname, double salary, int deptno) {
         //super();
-        System.out.println("Parameterized Employee constructor called..");
+        //System.out.println("Parameterized Employee constructor called..");
         this.empid = empid;
         this.empname = empname;
         this.salary = salary;
@@ -115,28 +112,26 @@ public class Employee implements Comparable<Employee> {
         this.empid=empid;
     }
 
-
-
-    //e1.equals(e2)
-    
     @Override
-    public boolean equals(Object obj)  //obj = e2
+    public boolean equals(Object obj) 
     {
-    	System.out.println("emp's equal method:comparing empid="+this.empid+" and empid="+((Employee)obj).empid);
-    	if(obj instanceof Employee) {
-    		return this.empid == ((Employee)obj).empid;
-    	}else {
-    		return false;
-    	}
+
+        System.out.println("emp's equal method:comparing empid="+this.empid+"and empid="+((Employee)obj).empid);
+        if(obj instanceof Employee)
+          return this.empid == ((Employee)obj).empid;
+        else
+          return false;
     }
-    
+
+
     @Override
-    public int hashCode() {
-    	System.out.println("hashCode of this employee with empid:" + this.empid + " is " + this.deptno);
-    	return this.deptno;
+    public int hashCode()
+    {
+        System.out.println("hashCode of this employee with empid:"+this.empid+" is :"+this.deptno);
+        return this.deptno;
     }
     
- // e1(prev).compareTo(e2)(next)
+    // e1(prev).compareTo(e2)(next)
     // e1=1 e2= 2
     // 1-2 = -ve no swap
     // if e1 = 3, e2 = 2
@@ -146,5 +141,6 @@ public class Employee implements Comparable<Employee> {
     	System.out.println("compareTo: emp with empid:"+this.empid+" compared with:"+e.empid);
     	return this.empid - e.empid; 
     }
+
  
 }
